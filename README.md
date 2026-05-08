@@ -30,7 +30,7 @@ Ansible + Python 기반 자동화 시스템 구축
 
 ▼
 
-[Target Servers (약 30대 추후에 더 늘어날수도 있음)]
+[Target Servers]
 
 │
 

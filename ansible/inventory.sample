@@ -1,0 +1,6 @@
+[cacerror_servers]
+ip
+[cacerror_servers:vars]
+ansible_user=user
+ansible_password=user_pw
+ansible_port= ssh port

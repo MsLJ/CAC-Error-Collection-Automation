@@ -32,7 +32,7 @@ Ansible + Python 기반 자동화 시스템 구축
     │ 정규화 및 파싱
     ▼
 [ Excel Report ]
-'''
+```
 ## Workflow
 1. Playbook 실행
 2. Raw Data 수집

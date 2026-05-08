@@ -1,0 +1,3 @@
+rx_drop	ip	em1, em2
+rx_	frame	ip em3, em4
+rx_fifo	ip	em1, em2

@@ -13,19 +13,26 @@ Ansible + Python 기반 자동화 시스템 구축
 - Ansible
 - Linux
 
-## Architecture
-[운영자] 
-   │ ansible-playbook 실행
-   ▼
-[Ansible Controller] ────────┐
-   │ (SSH / Inventory)       │ (Gathering Facts & Logs)
-   ▼                         │
-[Target Servers (N개)] ──────┘
-   │
-   ▼
-[Raw Data Storage] ────▶ [Python Parser] ────▶ [Excel Report]
-   (JSON/TXT)            (Pandas/Openpyxl)      (Final Output)
 
+## Architecture
+```text
+[ 운영자 ]
+    │
+    │ ansible-playbook 실행
+    ▼
+[ Ansible Controller ] ────────┐
+    │                          │
+    │ SSH / Inventory          │ 서버 정보 수집 (Raw Data)
+    ▼                          │
+[ Target Servers ] ────────────┘
+    │
+    ▼
+[ Data Processing (Python) ]
+    │
+    │ 정규화 및 파싱
+    ▼
+[ Excel Report ]
+'''
 ## Workflow
 1. Playbook 실행
 2. Raw Data 수집

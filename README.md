@@ -14,47 +14,17 @@ Ansible + Python 기반 자동화 시스템 구축
 - Linux
 
 ## Architecture
-[운영자]
-
-│
-
-│ ansible-playbook 실행
-
-▼
-
-[Ansible Controller]
-
-│
-
-│ SSH / Inventory
-
-▼
-
-[Target Servers]
-
-│
-
-│ 서버 정보 수집
-
-▼
-
-[Raw Data (JSON / TXT)]
-
-│
-
-│ Python 정규화 스크립트
-
-▼
-
-[Normalized Data]
-
-│
-
-│ Excel 작성
-
-▼
-
-[Excel Report]
+[운영자] 
+   │ ansible-playbook 실행
+   ▼
+[Ansible Controller] ────────┐
+   │ (SSH / Inventory)       │ (Gathering Facts & Logs)
+   ▼                         │
+[Target Servers (N개)] ──────┘
+   │
+   ▼
+[Raw Data Storage] ────▶ [Python Parser] ────▶ [Excel Report]
+   (JSON/TXT)            (Pandas/Openpyxl)      (Final Output)
 
 ## Workflow
 1. Playbook 실행
@@ -63,7 +33,7 @@ Ansible + Python 기반 자동화 시스템 구축
 4. Excel 생성
 
 ## Result
-- 작업 시간 약 95% 단축
-- 점검 데이터 표준화
-- 운영 효율 향상
+기존 방식: 수동 서버 접속 및  확인 (대당 3~5분 소요)
+개선 방식: Ansible 병렬 처리를 통한 일괄 수집 (100대 기준 약 5분 미만)
+성과: 전체 점검 공수 95% 절감 및 휴먼 에러(데이터 누락) 0% 달성
 
